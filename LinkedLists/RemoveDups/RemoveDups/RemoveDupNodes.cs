@@ -12,7 +12,7 @@ namespace RemoveDups
             HashSet<string> nodeValues = new HashSet<string>();
             LinkedListNode<string> traveler = unsortedList.First;
 
-            for (int i = 0; i < unsortedList.Count; i++)
+            for (int i = 0; i < unsortedList.Count; i++) // while( traveler.Next != null )
             {
                 if (!nodeValues.Add(traveler.Value))
                 {
@@ -34,11 +34,11 @@ namespace RemoveDups
             LinkedListNode<string> tortise = unsortedList.First;
             LinkedListNode<string> hare = unsortedList.First;
 
-            for (int j = 0; j < unsortedList.Count; ++j)
+            for (int j = 0; j < unsortedList.Count; ++j) // while( tortise.Next != null )
             {
-                for (int i = j; i < unsortedList.Count; ++i)
+                for (int i = j; i < unsortedList.Count; ++i) // while( hare.Next != null )
                 {
-                    if (hare.Next != null)
+                    if (hare.Next != null)  // Using the while would make this check the loop driver
                     {
                         hare = hare.Next;
                         if (tortise.Value == hare.Value)
